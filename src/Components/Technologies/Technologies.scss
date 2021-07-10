@@ -1,0 +1,392 @@
+@import '../../scss-exports/colors';
+
+/* Change this to change the appearance of the hexagons */
+$mobile-hex-height: 50px; 
+$mobile-hex-width: calc(50px / 1.73 );
+$mobile-margins: 1px 8px;
+$tablet-hex-width: calc(80px / 1.73 );
+$tablet-hex-height: 80px; 
+$tablet-margins: 2px 14px;
+$desktop-hex-height: 140px; 
+$desktop-hex-width: calc(140px / 1.73 );
+$desktop-margins: 4px 24px;
+$hex-transition: all .2s ease;
+$modal-height: 400px;
+$modal-width: calc(400px / 1.73 );
+$mobile-breakpoint: 767px;
+$tablet-breakpoint: 768px;
+$tablet-max-breakpoint: 1199px;
+$desktop-breakpoint: 1200px;
+
+/* Colors */
+$color-hex-primary: #d78521;
+$color-hex-secondary: $foreground;
+
+@media only screen and (min-width: 340px) and (max-width: 390px) {
+	#technologies {
+		max-width: 320px;
+	}
+}
+@media only screen and (min-width: 430px) and (max-width: 480px) {
+	#technologies {
+		max-width: 400px;
+	}
+}
+@media only screen and (min-width: 520px) and (max-width: 570px) {
+	#technologies {
+		max-width: 490px;
+	}
+}
+@media only screen and (min-width: 610px) and (max-width: 767px) {
+	#technologies {
+		max-width: 580px;
+	}
+}
+
+#technologies {
+    min-height: 100vh;
+    .honeycomb {
+        margin: 0 auto;
+        text-align: center;
+        font-size: 0;
+        padding-bottom: 60px;
+    }
+    .hexagon-tile {
+        position: relative;
+        display: inline-block;
+        background-color: $color-hex-primary;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 20%/5%;
+
+        &::after,&::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border-radius: 20%/5%;
+        }
+
+        &::after {
+            background-color: inherit;
+            content: "";
+            position: absolute;
+            left: 0;
+            transform: rotate(60deg);
+        }
+
+        &::before {
+            background-color: inherit;
+            content: "";
+            position: absolute;
+            left: 0;
+            transform: rotate(-60deg);
+        }
+        
+        &:hover, &:active, &.active {
+            background-color: $color-hex-secondary;
+        }
+        
+        > .tech-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: $color-hex-secondary;
+            font-size: 50px;
+            line-height: 1.2;
+            z-index: 1;
+        }
+        
+        &:hover > .tech-icon , &:active > .tech-icon , &.active > .tech-icon {
+            color: $color-hex-primary;
+        }
+
+        > .tech-modal {
+            position: fixed;
+            background-color: $color-hex-secondary;
+            z-index: 4;
+            border-radius: 20%/5%;
+            transition: all .5s ease;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+
+            &::after,&::before {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                border-radius: 20%/5%;
+                z-index: 4;
+                transition: all .5s ease;
+            }
+
+            &::after {
+                background-color: inherit;
+                content: "";
+                position: absolute;
+                left: 0;
+                transform: rotate(60deg);
+            }
+        
+            &::before {
+                background-color: inherit;
+                content: "";
+                position: absolute;
+                left: 0;
+                transform: rotate(-60deg);
+            }
+
+            &.enter-active {
+                width: $modal-width;
+                height: $modal-height;
+            }
+
+            &.enter-active::after,&.enter-active::before {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                border-radius: 20%/5%;
+                z-index: 4;
+                transition: all .5s ease;
+                width: $modal-width;
+                height: $modal-height;
+            }
+
+            &.enter-active::after {
+                background-color: inherit;
+                content: "";
+                position: absolute;
+                left: 0;
+                transform: rotate(60deg);
+            }
+        
+            &.enter-active::before {
+                background-color: inherit;
+                content: "";
+                position: absolute;
+                left: 0;
+                transform: rotate(-60deg);
+            }
+
+            &.enter-active::after,&.enter-active::before {
+                width: $modal-width;
+                height: $modal-height;
+            }
+
+            &.enter-done {
+                width: $modal-width;
+                height: $modal-height;
+                
+                > .modal-content {
+                    display: flex;
+                }
+            }
+
+            &.enter-done::after,&.enter-done::before {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                width: $modal-width;
+                height: $modal-height;
+                border-radius: 20%/5%;
+                z-index: 4;
+                transition: all .5s ease;
+            }
+
+            &.enter-done::after {
+                background-color: inherit;
+                content: "";
+                position: absolute;
+                left: 0;
+                transform: rotate(60deg);
+            }
+        
+            &.enter-done::before {
+                background-color: inherit;
+                content: "";
+                position: absolute;
+                left: 0;
+                transform: rotate(-60deg);
+            }
+
+            > .modal-content {
+                position: absolute;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                margin: auto;
+                color: white;
+                line-height: 1.2;
+                z-index: 5;
+                display: none;
+
+                > h3 {
+                    font-size: 30px;
+                    color: $color-hex-primary;
+                    margin-bottom: 15px;
+                }
+
+                > p {
+                    font-size: 14px;
+                }
+
+                > .close-btn {
+                    border-radius: 50%;
+                    position: absolute;
+                    padding: 5px 12px;
+                    color: $color-hex-secondary;
+                    border: 0;
+                    font-size: 30px;
+                    top: 10px;
+                    background-color: $color-hex-secondary;
+                    right: 10px;
+                    cursor: pointer;
+
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+    #technologies {
+        .honeycomb {
+            padding-bottom: 60px;
+        }
+        .hexagon-tile {
+            margin: $mobile-margins;
+            width: $mobile-hex-width;
+            height: $mobile-hex-height;
+
+            &::after,&::before {
+                width: $mobile-hex-width;
+                height: $mobile-hex-height;
+            }
+
+            &:nth-child(odd) {
+                top: 26px;
+            }
+        
+            > .tech-icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $color-hex-secondary;
+                font-size: 30px;
+                line-height: 1.2;
+                z-index: 1;
+            }
+            
+            > .tech-modal {
+                width: $mobile-hex-width;
+                height: $mobile-hex-height;
+
+                &::after,&::before {
+                    width: $mobile-hex-width;
+                    height: $mobile-hex-height;
+                }
+
+                &.enter-active::after,&.enter-active::before {
+                    width: $modal-width;
+                    height: $modal-height;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $tablet-breakpoint) and (max-width: $tablet-max-breakpoint) {
+    #technologies {
+        .honeycomb {
+            padding-bottom: 80px;
+        }
+        .hexagon-tile {
+            margin: $tablet-margins;
+            width: $tablet-hex-width;
+            height: $tablet-hex-height;
+
+            &::after,&::before {
+                width: $tablet-hex-width;
+                height: $tablet-hex-height;
+            }
+
+            &:nth-child(odd) {
+                top: 41px;
+            }
+            
+            > .tech-modal {
+                width: $tablet-hex-width;
+                height: $tablet-hex-height;
+
+                &::after,&::before {
+                    width: $tablet-hex-width;
+                    height: $tablet-hex-height;
+                }
+
+                &.enter-active::after,&.enter-active::before {
+                    width: $modal-width;
+                    height: $modal-height;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $desktop-breakpoint) {
+    #technologies {
+        .honeycomb {
+            padding-bottom: 100px;
+        }
+        .hexagon-tile {
+            margin: $desktop-margins;
+            width: $desktop-hex-width;
+            height: $desktop-hex-height;
+
+            &::after,&::before {
+                width: $desktop-hex-width;
+                height: $desktop-hex-height;
+            }
+
+            &:nth-child(odd) {
+                top: 72px;
+            }
+            
+            > .tech-modal {
+                width: $desktop-hex-width;
+                height: $desktop-hex-height;
+
+                &::after,&::before {
+                    width: $desktop-hex-width;
+                    height: $desktop-hex-height;
+                }
+            }
+        }
+    }
+}
+
+.modal-bg {
+    position: fixed;
+    width: 0;
+    height: 100%;
+    background-color: $color-hex-primary;
+    opacity: .5;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 3;
+    transition: all .5s ease;
+}
+.modal-bg.enter-active, .modal-bg.enter-done {
+    width: 100%;
+}

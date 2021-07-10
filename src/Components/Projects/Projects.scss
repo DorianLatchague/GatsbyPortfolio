@@ -1,0 +1,46 @@
+@import '../../scss-exports/colors';
+#projects {
+    min-height: 100vh;
+    .projects-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .project-card {
+            position: relative;
+            width: calc(33.3% - 10px);
+            cursor: pointer;
+            .project-name {
+                left: 50%;
+                top: 50%;
+                right: 0;
+                bottom: 0;
+                transform: translate(-50%, -50%);
+                position: absolute;
+                z-index: 1;
+                color: $foreground;
+            }
+            .project-img {
+                width: 100%;
+                filter: blur(2px) brightness(50%);
+            }
+            &:hover {
+                .project-img {
+                    filter: brightness(50%);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .projects-container .project-card {
+        width: calc(50% - 10px);
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .projects-container .project-card {
+        width: 100%;
+    }
+}

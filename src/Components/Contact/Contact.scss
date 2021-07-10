@@ -1,0 +1,144 @@
+@import '../../scss-exports/colors';
+
+#contact {
+    margin-bottom: 30px;
+    min-height: 100vh;
+    .flex-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .contact-info {
+            width: calc(50% - 10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            p {
+                display: flex;
+                align-items: center;
+                font-size: 16px;
+                .contact-icon {
+                    margin-bottom: -4px;
+                    font-size: 20px;
+                }
+            }
+        }
+        .contact-form {
+            padding: 20px;
+            width: calc(50% - 10px);
+            border-radius: .25em;
+            background: $regex-keyword;
+            > h3 {
+                color: $regex;
+            }
+            > input {
+                padding: 5px;
+                width: 100%;
+                color: $string;
+                background-color: transparent;
+                border: 0;
+                border-bottom: 2px solid $regex;
+                font-size: 18px;
+                text-align: center;
+                outline: 0;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                &::placeholder {
+                    color: $regex;
+                }
+                &:focus {
+                    border-color: $new;
+                }
+            }
+            > textarea {
+                padding: 5px;
+                text-align: center;
+                resize: none;
+                width: 100%;
+                color: $string;
+                background-color: transparent;
+                border: 0;
+                border-bottom: 2px solid $regex;
+                font-size: 18px;
+                line-height: 20px;
+                outline: 0;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                &::placeholder {
+                    color: $regex;
+                }
+                &:focus {
+                    border-color: $new;
+                }
+            }
+            > .last-line {
+                padding-top: 15px;
+                display: flex;
+                justify-content: space-between;
+                > p {
+                    font-size: 12px;
+                    color: $regex;
+                }
+                > button {
+                    font-size: 24px;
+                    padding: 8px 12px;
+                    min-width: 25%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $regex-keyword;
+                    border: 2px solid $regex;
+                    border-radius: .25em;
+                    color: $regex;
+                    transition: all .5s ease-in-out;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: $regex;
+                        color: $regex-keyword;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    #contact {
+        .flex-container {
+            .contact-form {
+                > .last-line {
+                    flex-direction: column;
+                    > button {
+                        order: 1;
+                    }
+                    > p {
+                        margin-top: 10px;
+                        order: 2;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1000px) {
+    #contact {
+        .flex-container {
+            .contact-form {
+                width: 100%;
+                order: 2;
+            }
+            .contact-info {
+                padding: 20px;
+                width: 100%;
+                order: 1;
+                align-items: center;
+                > p {
+                    margin-top: 3px;
+                    margin-bottom: 3px;
+                }
+            }
+        }
+    }
+}

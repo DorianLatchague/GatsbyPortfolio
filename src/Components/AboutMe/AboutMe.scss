@@ -1,0 +1,82 @@
+@import '../../scss-exports/dimensions';
+
+
+#about {
+    padding-top: 15px + $header-height;
+    color: #e8ebf7;
+    background-image: url('../../images/clef-heart.png');
+    background-position-x: 100%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+    background-size: auto;
+    .about-flex-ctn {
+        .text-lines {
+            .line {
+                display: flex;
+                justify-content: flex-start;
+                align-self: flex-start;
+                width: 85%;
+                .line-number {
+                    font-size: 14px;
+                    line-height: 18px;
+                    color: #74787b;
+                    margin-right: 20px;
+                }
+                &:hover .line-number, &:active .line-number {
+                    color: #b7b5b5;
+                }
+            }
+        }
+        > .gatsby-image-wrapper {
+            max-width: 100%;
+        }
+    }
+}
+@media only screen and (max-width: 1259px) {
+    #about {
+        color: #e8ebf7;
+        .about-flex-ctn {
+            .text-lines {
+                margin-bottom: 30px;
+                .line {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1001px) {
+    #about {
+        > h1 {
+            display: none;
+        }
+    }
+}
+@media only screen and (min-width: 800px) {
+    #about {
+        .about-flex-ctn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            > .text-lines {
+                width: calc(50% - 10px);
+            }
+            > .gatsby-image-wrapper {
+                width: calc(50% - 10px);
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #about {
+        .about-flex-ctn {
+            > .text-lines {
+                width: calc(70% - 10px);
+            }
+            > .gatsby-image-wrapper {
+                width: calc(30% - 10px);
+            }
+        }
+    }
+}

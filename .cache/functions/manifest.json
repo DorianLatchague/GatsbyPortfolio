@@ -1,0 +1,10 @@
+[
+    {
+        "functionRoute": "form",
+        "pluginName": "default-site-plugin",
+        "originalAbsoluteFilePath": "/Users/doria/Documents/Personal/Projects/portfolio-gatsby/src/api/form.ts",
+        "originalRelativeFilePath": "form.ts",
+        "relativeCompiledFilePath": "form.js",
+        "absoluteCompiledFilePath": "/Users/doria/Documents/Personal/Projects/portfolio-gatsby/.cache/functions/form.js"
+    }
+]

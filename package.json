@@ -1,0 +1,42 @@
+{
+  "name": "dorian-latchague",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dorian Latchague",
+  "author": "DorianLatchague",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@types/react-helmet": "^6.1.1",
+    "@types/react-scroll": "^1.8.2",
+    "@types/react-transition-group": "^4.4.2",
+    "axios": "^0.21.1",
+    "gatsby": "^3.8.1",
+    "gatsby-plugin-google-analytics": "^3.8.0",
+    "gatsby-plugin-image": "^1.8.0",
+    "gatsby-plugin-manifest": "^3.8.0",
+    "gatsby-plugin-react-helmet": "^4.8.0",
+    "gatsby-plugin-sass": "^4.8.0",
+    "gatsby-plugin-sharp": "^3.8.0",
+    "gatsby-plugin-sitemap": "^4.4.0",
+    "gatsby-source-filesystem": "^3.8.0",
+    "gatsby-transformer-json": "^3.8.0",
+    "gatsby-transformer-remark": "^4.5.0",
+    "gatsby-transformer-sharp": "^3.8.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.2.0",
+    "react-scroll": "^1.8.2",
+    "react-transition-group": "^4.4.2",
+    "sass": "^1.35.1"
+  }
+}

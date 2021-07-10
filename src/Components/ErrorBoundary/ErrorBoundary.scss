@@ -1,0 +1,14 @@
+.error-modal {
+    margin: 15px;
+    border-radius: .25em;
+    border: 1px solid #eee;
+    padding: 15px;
+}
+.error-modal h4 {
+    color: rgb(206, 17, 38);
+    white-space: pre-wrap;
+    margin: 0px 2rem 0.75rem 0px;
+    font-weight: normal;
+    flex: 0 0 auto;
+    overflow: auto;
+}

@@ -1,0 +1,21 @@
+@import '../../scss-exports/colors';
+
+footer {
+    background-color: $background;
+    padding: 15px 0;
+    border-top: 1px solid #373737;
+    text-align: center;
+    h6 {
+        cursor: pointer;
+        color: $variable;
+    }
+    .footer-nav {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .footer-nav-item {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        cursor: pointer;
+    }
+}
