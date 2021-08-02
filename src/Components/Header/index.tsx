@@ -40,23 +40,25 @@ export default class Header extends Component<{
         }
     }
     calculateLinkOffset = () => {
-        return this.props.isMobile ? 0 : -50;
+        return this.props.isMobile ? 0 : -49.5;
     }
     render() {
         return <header>
             <div className="container header-container">
-                <h6 onClick={animateScroll.scrollToTop}>Dorian&nbsp;Latchague</h6>
+            <ScrollLink onClick={this.toggleNav} smooth={true} spy={true} duration={500} offset={this.calculateLinkOffset()} className="title-link" activeClass="active" to="intro"><h6 onClick={animateScroll.scrollToTop}>Dorian&nbsp;Latchague</h6></ScrollLink>
                 <div className={`nav${this.props.navToggled ? ' active' : ''}`}>
                     <ul className="container nav-container">
                         { this.props.isIndex ? 
                             <>
+                                <ScrollLink onClick={this.toggleNav} smooth={true} spy={true} duration={500} offset={this.calculateLinkOffset()} className="scroll-link" activeClass="active" to="intro" id="intro-link"><li className="nav-item">Home</li></ScrollLink>
                                 <ScrollLink onClick={this.toggleNav} smooth={true} spy={true} duration={500} offset={this.calculateLinkOffset()} className="scroll-link" activeClass="active" to="about"><li className="nav-item">About&nbsp;Me</li></ScrollLink>
                                 <ScrollLink onClick={this.toggleNav} smooth={true} spy={true} duration={500} offset={this.calculateLinkOffset()} className="scroll-link" activeClass="active" to="experience"><li className="nav-item">Experience</li></ScrollLink>
                                 <ScrollLink onClick={this.toggleNav} smooth={true} spy={true} duration={500} offset={this.calculateLinkOffset()} className="scroll-link" activeClass="active" to="technologies"><li className="nav-item">Technologies</li></ScrollLink>
                                 <ScrollLink onClick={this.toggleNav} smooth={true} spy={true} duration={500} offset={this.calculateLinkOffset()} className="scroll-link" activeClass="active" to="projects"><li className="nav-item">Projects</li></ScrollLink>
                                 <ScrollLink onClick={this.toggleNav} smooth={true} spy={true} duration={500} offset={this.calculateLinkOffset()} className="scroll-link" activeClass="active" to="contact"><li className="nav-item">Contact</li></ScrollLink>
                             </> : <>
-                                <GatsbyLink to={"/"} className="scroll-link" activeClassName="active" ><li className="nav-item">About&nbsp;Me</li></GatsbyLink>
+                                <GatsbyLink to={"/"} className="scroll-link" activeClassName="active" id="gastby-intro-link"><li className="nav-item">Home</li></GatsbyLink>
+                                <GatsbyLink to={"/#about"} className="scroll-link" activeClassName="active" ><li className="nav-item">About&nbsp;Me</li></GatsbyLink>
                                 <GatsbyLink to={"/#experience"} className="scroll-link" activeClassName="active" ><li className="nav-item">Experience</li></GatsbyLink>
                                 <GatsbyLink to={"/#technologies"} className="scroll-link" activeClassName="active" ><li className="nav-item">Technologies</li></GatsbyLink>
                                 <GatsbyLink to={"/#projects"} className="scroll-link" activeClassName="active" ><li className="nav-item">Projects</li></GatsbyLink>

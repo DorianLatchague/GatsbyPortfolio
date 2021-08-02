@@ -15,7 +15,6 @@ export default class AboutMe extends Component {
     render() {
         return <Element name="about">
             <section id="about" className="portfolio-section">
-                <h1 className="container text-variable">Dorian Latchague </h1>
                 <h2>&lt;About Me /&gt;</h2>
                 <div className="about-flex-ctn container">
                     <div className="text-lines">

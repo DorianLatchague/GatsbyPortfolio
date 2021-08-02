@@ -10,11 +10,10 @@ import Experience from '../Components/Experience';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
+import Intro from '../Components/Intro';
 
 const isMobileWidth = () => {
-  if (!window) {
-      return false;
-  } else if (window.innerWidth <= 1000) {
+  if (window.innerWidth <= 1000) {
       return true;
   }
   return false;
@@ -38,10 +37,13 @@ function App({
   }
 }}) {
   const [navToggled, setNavToggled] = useState(false);
-  const [isMobile, setIsMobile] = useState(isMobileWidth());
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    window.addEventListener('resize', onResizeIsMobile);
-    return () => window.removeEventListener('resize', onResizeIsMobile);
+    setIsMobile(isMobileWidth());
+    if (window) {
+      window.addEventListener('resize', onResizeIsMobile);
+      return () => window.removeEventListener('resize', onResizeIsMobile);
+    }
   }, [isMobile]);
   const onResizeIsMobile = () => {
       setIsMobile(isMobileWidth());
@@ -53,6 +55,7 @@ function App({
       </Helmet>
       <Header isMobile={isMobile} navToggled={navToggled} setNavToggled={setNavToggled} isIndex={__filename === '/index.js'} />
       <main className={navToggled ? 'nav-toggled': ''}>
+        <Intro />
         <AboutMe />
         <Experience />
         <Technologies technologies={technologies} />

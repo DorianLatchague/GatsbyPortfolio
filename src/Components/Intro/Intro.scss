@@ -1,0 +1,149 @@
+@import '../../scss-exports/dimensions';
+@import '../../scss-exports/colors';
+
+#intro {
+    padding-top: 15px + $header-height;
+    padding-bottom: 40px;
+    background-image: url('../../images/clef-heart.png');
+    background-position-x: 100%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+    background-size: auto;
+    > h1 {
+        line-height: 30px;
+        font-size: 16px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        display: grid;
+        grid-template-columns: repeat(16, 17px);
+    }
+    > h2 {  
+        line-height: 30px;
+        margin-bottom: 25px;
+        margin-top: 25px;
+        font-size: 16px;
+        text-align: left;
+        display: grid;
+        grid-template-columns: repeat(17, 17px);
+    }
+    .rotating-pannel {
+        display: inline-flex;
+        color: $foreground;
+        background-color: black;
+        border: 1px solid $foreground;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media only screen and (min-width: 380px) {
+    #intro {
+        > h1 {
+            line-height: 30px;
+            font-size: 20px;
+            display: grid;
+            grid-template-columns: repeat(16, 20px);
+        }
+        > h2 {  
+            line-height: 30px;
+            font-size: 20px;
+            display: grid;
+            grid-template-columns: repeat(17, 20px);
+        }
+    }
+}
+@media only screen and (min-width: 420px) {
+    #intro {
+        > h1 {
+            line-height: 32px;
+            font-size: 22px;
+            display: grid;
+            grid-template-columns: repeat(16, 22px);
+        }
+        > h2 {  
+            line-height: 32px;
+            font-size: 22px;
+            display: grid;
+            grid-template-columns: repeat(17, 22px);
+        }
+    }
+}
+@media only screen and (min-width: 480px) {
+    #intro {
+        > h1 {
+            line-height: 35px;
+            font-size: 25px;
+            display: grid;
+            grid-template-columns: repeat(16, 25px);
+        }
+        > h2 {  
+            line-height: 35px;
+            font-size: 25px;
+            display: grid;
+            grid-template-columns: repeat(17, 25px);
+        }
+    }
+}
+@media only screen and (min-width: 550px) {
+    #intro {
+        > h1 {
+            line-height: 40px;
+            font-size: 30px;
+            display: grid;
+            grid-template-columns: repeat(16, 30px);
+        }
+        > h2 {  
+            line-height: 40px;
+            font-size: 30px;
+            display: grid;
+            grid-template-columns: repeat(17, 30px);
+        }
+    }
+}
+@media only screen and (min-width: 768px) {
+    #intro {
+        > h1 {
+            line-height: 50px;
+            font-size: 40px;
+            display: grid;
+            grid-template-columns: repeat(16, 40px);
+        }
+        > h2 {  
+            line-height: 50px;
+            font-size: 40px;
+            display: grid;
+            grid-template-columns: repeat(17, 40px);
+        }
+    }
+}
+@media only screen and (min-width: 992px) {
+    #intro {
+        > h1 {
+            line-height: 60px;
+            font-size: 50px;
+            display: grid;
+            grid-template-columns: repeat(16, 50px);
+        }
+        > h2 {  
+            line-height: 60px;
+            font-size: 50px;
+            display: grid;
+            grid-template-columns: repeat(17, 50px);
+        }
+    }
+}
+@media only screen and (min-width: 1200px) {
+    #intro {
+        > h1 {
+            line-height: 80px;
+            font-size: 60px;
+            display: grid;
+            grid-template-columns: repeat(16, 60px);
+        }
+        > h2 {  
+            line-height: 80px;
+            font-size: 60px;
+            display: grid;
+            grid-template-columns: repeat(17, 60px);
+        }
+    }
+}

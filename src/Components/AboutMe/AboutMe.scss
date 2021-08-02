@@ -1,14 +1,8 @@
 @import '../../scss-exports/dimensions';
 
-
 #about {
-    padding-top: 15px + $header-height;
+    padding-top: 15px;
     color: #e8ebf7;
-    background-image: url('../../images/clef-heart.png');
-    background-position-x: 100%;
-    background-position-y: 50%;
-    background-repeat: no-repeat;
-    background-size: auto;
     .about-flex-ctn {
         .text-lines {
             .line {
@@ -42,13 +36,6 @@
                     width: 100%;
                 }
             }
-        }
-    }
-}
-@media only screen and (min-width: 1001px) {
-    #about {
-        > h1 {
-            display: none;
         }
     }
 }

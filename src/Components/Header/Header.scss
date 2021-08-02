@@ -17,6 +17,14 @@ header {
     .header-container {
         display: flex;
         justify-content: space-between;
+        .title-link.active h6 {
+            &::before {
+            content: "<"
+            }
+            &::after {
+                content: "/>"
+            }
+        }
     }
     .nav {
         .scroll-link.active .nav-item {
@@ -98,7 +106,7 @@ header {
         }
     }
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 991px) {
     header {
         visibility: hidden;
     }
@@ -115,6 +123,7 @@ header {
         width: 120%;
         max-width: 120%;
         height: 120%;
+        min-width: 320px * 1.2;
         overflow: hidden;
         background-color: #000000;
         background-color: rgba(0,0,0,0.6);
@@ -153,7 +162,7 @@ header {
         }
     }
 }
-@media only screen and (min-width: 1001px) {
+@media only screen and (min-width: 992px) {
     header {
         .nav-container {
             display: flex;
@@ -168,9 +177,45 @@ header {
             .nav-item:hover, .nav-item:active, .scroll-link.active .nav-item {
                 border-color: $classes;
             }
+            #intro-link {
+                display: none;
+            }
+            #gastby-intro-link {
+                display: none;
+            }
         }
         .nav-toggle {
             display: none;
         }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .nav {
+        .nav-container {
+            max-width: 600px;
+        }
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .nav {
+        .nav-container {
+            max-width: 450px;
+        }
+    }
+}
+
+@media only screen and (max-width: 470px) {
+    .nav {
+        .nav-container {
+            max-width: 300px;
+        }
+    }
+}
+@media only screen and (max-width: 320px) {
+    .nav {
+        display: flex;
+        justify-content: center;
     }
 }
