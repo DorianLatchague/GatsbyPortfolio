@@ -1,11 +1,10 @@
-import React, { ChangeEvent, Component, createRef, FocusEvent, FormEvent, KeyboardEvent, RefObject } from "react";
+import React, { ChangeEvent, Component, createRef, FocusEvent, FormEvent, RefObject } from "react";
 import './Contact.scss';
 import { Element } from 'react-scroll';
 import { BiMailSend } from 'react-icons/bi';
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import submitContactForm from '../../api/form';
-
-declare var grecaptcha: any;
+import Recaptcha from 'react-recaptcha';
 
 export default class Contact extends Component<{}, {
     subject: string,
@@ -13,7 +12,7 @@ export default class Contact extends Component<{}, {
     name: string,
     email : string
 }> {
-    captchaScript: HTMLScriptElement|null = null;
+    captchaElement: RefObject<Recaptcha> = createRef();
     holdPlaceholder: string = '';
     state = {
         name: '',
@@ -22,23 +21,15 @@ export default class Contact extends Component<{}, {
         message: ''
     }
     textareaField: RefObject<HTMLTextAreaElement> = createRef();
-    componentDidMount() {
-        this.captchaScript = document.createElement("script")
-        this.captchaScript.src = `https://www.google.com/recaptcha/api.js?render=${process.env.REACT_APP_RECAPTCHA_API_KEY}`;
-        document.body.appendChild(this.captchaScript);
+    captchaCallback = (response: string) => {
+        submitContactForm(response, this.state).then((data => {
+            JSON.stringify(console.log(data));
+        })).catch(err => console.log(JSON.stringify(err)));
     }
-    componentWillUnmount() {
-        this.captchaScript?.remove();
-        this.captchaScript = null;
-    }
-    submitContactForm = (e: FormEvent) => {
+    submitContactForm = async (e: FormEvent) => {
         e.preventDefault();
-        if (grecaptcha) {
-            grecaptcha.ready(() => {
-                grecaptcha.execute(process.env.REACT_APP_RECAPTCHA_API_KEY, {action: 'submit'}).then((token:any) => {
-                    submitContactForm(token, this.state);
-                })
-            });
+        if (this.captchaElement?.current) {
+            this.captchaElement.current.execute();
         }
     }
     onInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -97,6 +88,7 @@ export default class Contact extends Component<{}, {
                     </div>
                 </div>
             </section>
+            <Recaptcha ref={this.captchaElement} size="invisible" theme="dark" sitekey={"6LeVsLAaAAAAALSiFbAqoe4bNMyjSKjSbVZgIaZ-"} verifyCallback={this.captchaCallback} />
         </Element>
     }
 }
