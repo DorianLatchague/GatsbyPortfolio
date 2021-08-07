@@ -88,7 +88,7 @@ export default class Contact extends Component<{}, {
                     </div>
                 </div>
             </section>
-            <Recaptcha ref={this.captchaElement} size="invisible" theme="dark" sitekey={"6LeVsLAaAAAAALSiFbAqoe4bNMyjSKjSbVZgIaZ-"} verifyCallback={this.captchaCallback} />
+            { <Recaptcha ref={this.captchaElement} size="invisible" theme="dark" sitekey={process.env.REACT_RECAPTCHA_SITE_KEY} verifyCallback={this.captchaCallback} /> }
         </Element>
     }
 }
