@@ -76,9 +76,11 @@
                 padding-top: 15px;
                 display: flex;
                 justify-content: space-between;
-                > p {
-                    font-size: 12px;
-                    color: $regex;
+                > div {
+                    > p {
+                        font-size: 12px;
+                        color: $regex;
+                    }
                 }
                 > button {
                     font-size: 24px;
@@ -109,13 +111,13 @@
             .contact-form {
                 > .last-line {
                     flex-direction: column;
+                    > div {
+                            margin-top: 10px;
+                            order: 2;
+                            text-align: center;
+                    }
                     > button {
                         order: 1;
-                    }
-                    > p {
-                        margin-top: 10px;
-                        order: 2;
-                        text-align: center;
                     }
                 }
             }

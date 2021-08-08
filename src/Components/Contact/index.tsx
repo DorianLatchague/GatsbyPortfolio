@@ -5,6 +5,7 @@ import { BiMailSend } from 'react-icons/bi';
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import submitContactForm from '../../api/form';
 import Recaptcha from 'react-recaptcha';
+import useSSR from 'use-ssr';
 
 export default class Contact extends Component<{}, {
     subject: string,
@@ -22,9 +23,10 @@ export default class Contact extends Component<{}, {
     }
     textareaField: RefObject<HTMLTextAreaElement> = createRef();
     captchaCallback = (response: string) => {
+        console.log(response);
         submitContactForm(response, this.state).then((data => {
-            JSON.stringify(console.log(data));
-        })).catch(err => console.log(JSON.stringify(err)));
+            console.log(data);
+        })).catch(err => console.log(err));
     }
     submitContactForm = async (e: FormEvent) => {
         e.preventDefault();
@@ -75,8 +77,12 @@ export default class Contact extends Component<{}, {
                         <input name="subject" placeholder="Subject*" value={this.state.subject} onChange={this.onInputChange} onFocus={this.onFocusRemovePlaceholder} onBlur={this.onBlurReaddPlaceholder} />
                         <textarea ref={this.textareaField} rows={1} name="message" placeholder="Message*" value={this.state.message} onChange={this.onInputChange} onFocus={this.onFocusRemovePlaceholder} onBlur={this.onBlurReaddPlaceholder}></textarea>
                         <div className="last-line">
-                            <p>I am committed to your privacy and will not share/sell/divulge personal user information to any third party, under any circumstances.</p>
-                            <button><BiMailSend /> Send</button>
+                            <div className="text">
+                                <p>By filling out this form, you agree to be contacted.</p>
+                                <br />
+                                <p>I am committed to your privacy and will not share/sell/divulge personal user information to any third party, under any circumstances.</p>
+                            </div>
+                            <button><BiMailSend />&nbsp;Send</button>
                         </div>
                     </form>
                     <div className="contact-info">
@@ -88,7 +94,7 @@ export default class Contact extends Component<{}, {
                     </div>
                 </div>
             </section>
-            { <Recaptcha ref={this.captchaElement} size="invisible" theme="dark" sitekey={process.env.REACT_RECAPTCHA_SITE_KEY} verifyCallback={this.captchaCallback} /> }
+            { useSSR().isBrowser && <Recaptcha ref={this.captchaElement} size="invisible" theme="dark" sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY} verifyCallback={this.captchaCallback} /> }
         </Element>
     }
 }

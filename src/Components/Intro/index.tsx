@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { Element } from "react-scroll";
 import "./Intro.scss";
 
-const titleRotation = ["Software Engineer", "Web Developer", "Marketing Lead", "Cellist", "Teacher"];
+const titleRotation = ["Software Engineer", "Web Developer", "Full Stack Developer", "Mentor", "Teacher"];
 const rotatingLetters = [" ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","-"]
 const maxTitleCharacters: number = titleRotation.reduce((a, b) => a.length > b.length ? a : b).length;
-const rotateTimer: number = 7000;
-const flipTimer: number = 75;
+const rotateTimer: number = 5000;
+const flipTimer: number = 60;
 type State = {
     titleIndex: number,
     currentCharCodes: number[],
@@ -133,7 +133,7 @@ export default class Intro extends Component <{}, State> {
                 <h2>{"My name is".split("").map((char, index) => <span key={index} className="rotating-pannel">{char}</span>)}</h2>
                 <h1>{"Dorian Latchague".split("").map((char, index) => <span key={index} className="rotating-pannel">{char}</span>)}</h1>
                 <h2>{"I'm a".split("").map((char, index) => <span key={index} className="rotating-pannel">{char}</span>)}</h2>
-                <h2>{this.state.currentCharCodes.map((charCode, index) => <span key={index} className="rotating-pannel">{this.state.upperCaseIndexes.includes(index) ? rotatingLetters[charCode].toUpperCase() : rotatingLetters[charCode]}</span>)}
+                <h2 style={{gridTemplateColumns: `repeat(${maxTitleCharacters}, 60px)`}}>{this.state.currentCharCodes.map((charCode, index) => <span key={index} className="rotating-pannel">{this.state.upperCaseIndexes.includes(index) ? rotatingLetters[charCode].toUpperCase() : rotatingLetters[charCode]}</span>)}
                 </h2>
             </section>
         </Element>

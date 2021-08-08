@@ -6,5 +6,5 @@ export default function submitContactForm(recaptchaToken: string, form: {
     email: string,
     name: string
 }) {
-    return axios.post('https://api.dorianlatchague.com/portfolio/message',{ ...form, recaptchaToken});
+    return axios.post('https://api.dorianlatchague.com/portfolio/message',{ ...form, recaptcha: recaptchaToken});
 }

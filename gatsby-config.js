@@ -1,3 +1,4 @@
+require("dotenv").config();
 module.exports = {
   siteMetadata: {
     siteUrl: "https://dorianlatchague.com",

@@ -20,6 +20,7 @@
     "@types/react-scroll": "^1.8.2",
     "@types/react-transition-group": "^4.4.2",
     "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
     "gatsby": "^3.8.1",
     "gatsby-plugin-google-analytics": "^3.8.0",
     "gatsby-plugin-image": "^1.8.0",
@@ -40,6 +41,7 @@
     "react-recaptcha": "^2.3.10",
     "react-scroll": "^1.8.2",
     "react-transition-group": "^4.4.2",
-    "sass": "^1.35.1"
+    "sass": "^1.35.1",
+    "use-ssr": "^1.0.24"
   }
 }
