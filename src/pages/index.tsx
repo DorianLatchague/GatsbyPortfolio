@@ -1,16 +1,16 @@
 import '../stylesheets/index.scss';
 import ErrorBoundary from '../Components/ErrorBoundary';
-import Technologies from '../Components/Technologies';
-import AboutMe from '../Components/AboutMe';
+import { Helmet } from "react-helmet";
 import Header from '../Components/Header';
+import Intro from '../Components/Intro';
+import AboutMe from '../Components/AboutMe';
+import Experience from '../Components/Experience';
+import Technologies from '../Components/Technologies';
 import Projects from '../Components/Projects';
 import Contact from '../Components/Contact';
 import Footer from '../Components/Footer';
-import Experience from '../Components/Experience';
 import React, { useEffect, useState } from 'react';
-import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
-import Intro from '../Components/Intro';
 
 const isMobileWidth = () => {
   if (window.innerWidth <= 1000) {

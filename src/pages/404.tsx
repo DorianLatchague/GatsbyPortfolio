@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
-import { Helmet } from "react-helmet";
 import ErrorBoundary from "../Components/ErrorBoundary";
-import Footer from "../Components/Footer";
+import { Helmet } from "react-helmet";
 import Header from "../Components/Header";
+import { Link } from "gatsby"
+import Footer from "../Components/Footer";
 import '../stylesheets/404.scss';
 
 const isMobileWidth = () => {

@@ -76,27 +76,29 @@
 }
 
 @media only screen and (min-width: 1001px) {
-    .chrono-flex {
-        .chrono-line {
-            display: flex;
-        }
-        .content {
-            .experience {
-                .experience-card {
-                    margin-top: -11.5px;
-                }
-                .connector {
-                    .timeline {
-                        margin-top: -10px;
-                        margin-left: 10px;
-                        position: absolute;
+    #experience {
+        .chrono-flex {
+            .chrono-line {
+                display: flex;
+            }
+            .content {
+                .experience {
+                    .experience-card {
+                        margin-top: -11.5px;
                     }
-                    hr {
-                        margin-top: 15px;
-                        margin-bottom: 15px;
-                        height: 7px;
-                        background-color: $foreground;
-                        border: 0;
+                    .connector {
+                        .timeline {
+                            margin-top: -10px;
+                            margin-left: 10px;
+                            position: absolute;
+                        }
+                        hr {
+                            margin-top: 15px;
+                            margin-bottom: 15px;
+                            height: 7px;
+                            background-color: $foreground;
+                            border: 0;
+                        }
                     }
                 }
             }

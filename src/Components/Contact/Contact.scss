@@ -29,6 +29,10 @@
             width: calc(50% - 10px);
             border-radius: .25em;
             background: $regex-keyword;
+            .error-text {
+                color: $danger;
+                text-align: center;
+            }
             > h3 {
                 color: $regex;
             }
@@ -48,7 +52,11 @@
                     color: $regex;
                 }
                 &:focus {
-                    border-color: $new;
+                    border-color: $danger;
+                }
+                &:-webkit-autofill {
+                    -webkit-box-shadow: 0 0 0 50px $regex-keyword inset; /* Change the color to your own background color */
+                    -webkit-text-fill-color: $regex;
                 }
             }
             > textarea {
@@ -69,13 +77,23 @@
                     color: $regex;
                 }
                 &:focus {
-                    border-color: $new;
+                    border-color: $danger;
+                }
+                &:-internal-autofill-selected, &:autofill, &:-webkit-autofill {
+                    appearance: none;
+                    color: $string !important;
+                    background-color: none !important;
+                    outline: inherit;
                 }
             }
             > .last-line {
                 padding-top: 15px;
                 display: flex;
                 justify-content: space-between;
+                .error-text {
+                    color: $danger;
+                    font-size: 14px;
+                }
                 > div {
                     > p {
                         font-size: 12px;
@@ -95,9 +113,33 @@
                     color: $regex;
                     transition: all .5s ease-in-out;
                     cursor: pointer;
-                    &:hover {
+                    &:hover, &[disabled] {
                         background-color: $regex;
                         color: $regex-keyword;
+                        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+                    }
+                    &.completed {
+                        border-color: $const;
+                        color: $const;
+                        &:hover {
+                            background-color: $const;
+                            color: $regex-keyword;
+                        }
+                    }
+                    &.error {
+                        border-color: $danger;
+                        color: $danger;
+                        &:hover {
+                            background-color: $danger;
+                            color: $regex-keyword;
+                        }
+                    }
+                    &[disabled] {
+                        cursor: auto;
+                    }
+                    > .loading {
+                        font-size: 30px;
+                        animation: 1.5s linear infinite rotate;
                     }
                 }
             }
@@ -142,5 +184,16 @@
                 }
             }
         }
+    }
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }

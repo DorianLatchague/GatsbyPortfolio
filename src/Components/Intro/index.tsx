@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Element } from "react-scroll";
 import "./Intro.scss";
 
-const titleRotation = ["Software Engineer", "Web Developer", "Full Stack Developer", "Mentor", "Teacher"];
+const titleRotation = ["Software Engineer", "Web Developer", "Full Stack Developer", "Mentor and Teacher", "DevOps Engineer"];
 const rotatingLetters = [" ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","-"]
 const maxTitleCharacters: number = titleRotation.reduce((a, b) => a.length > b.length ? a : b).length;
 const rotateTimer: number = 5000;
@@ -126,15 +126,24 @@ export default class Intro extends Component <{}, State> {
             }
         }, flipTimer);
     }
+    convertStringToRotatingPannels = (str: string) => {
+        while(str.length < maxTitleCharacters) {
+            str += " ";
+        }
+        return str.split("").map((char, index) => <svg viewBox={"0 0 28 42"} key={index} className="rotating-pannel">
+        <text y="60%" x="50%" textAnchor="middle">{char}</text>
+    </svg>);
+    }
     render() {
         return <Element name="intro">
             <section id="intro" className="container">
-                <h2>{"Hey".split("").map((char, index) => <span key={index} className="rotating-pannel">{char}</span>)}</h2>
-                <h2>{"My name is".split("").map((char, index) => <span key={index} className="rotating-pannel">{char}</span>)}</h2>
-                <h1>{"Dorian Latchague".split("").map((char, index) => <span key={index} className="rotating-pannel">{char}</span>)}</h1>
-                <h2>{"I'm a".split("").map((char, index) => <span key={index} className="rotating-pannel">{char}</span>)}</h2>
-                <h2 style={{gridTemplateColumns: `repeat(${maxTitleCharacters}, 60px)`}}>{this.state.currentCharCodes.map((charCode, index) => <span key={index} className="rotating-pannel">{this.state.upperCaseIndexes.includes(index) ? rotatingLetters[charCode].toUpperCase() : rotatingLetters[charCode]}</span>)}
-                </h2>
+                <h2>{this.convertStringToRotatingPannels("Hello,")}</h2>
+                <h2>{this.convertStringToRotatingPannels("My name is")}</h2>
+                <h1 className="name">{this.convertStringToRotatingPannels("Dorian Latchague")}</h1>
+                <h2>{this.convertStringToRotatingPannels("I'm a")}</h2>
+                <h1>{this.state.currentCharCodes.map((charCode, index) => <svg viewBox={"0 0 28 42"} key={index} className="rotating-pannel">
+                        <text y="60%" x="50%" textAnchor="middle">{this.state.upperCaseIndexes.includes(index) ? rotatingLetters[charCode].toUpperCase() : rotatingLetters[charCode]}</text>
+                </svg>)}</h1>
             </section>
         </Element>
     }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import TechnologyCard from "../TechnologyCard";
 import { Element } from 'react-scroll';
+import TechnologyCard from "../TechnologyCard";
 import './Technologies.scss';
 import * as Fa from 'react-icons/fa';
 import * as Si from 'react-icons/si';
