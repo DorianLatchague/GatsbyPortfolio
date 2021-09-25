@@ -5,11 +5,10 @@ import Header from "../Components/Header";
 import { Link } from "gatsby"
 import Footer from "../Components/Footer";
 import '../stylesheets/404.scss';
+import useSSR from "use-ssr";
 
 const isMobileWidth = () => {
-  if (!window) {
-      return false;
-  } else if (window.innerWidth <= 1000) {
+  if (useSSR().isBrowser && window.innerWidth <= 1000) {
       return true;
   }
   return false;

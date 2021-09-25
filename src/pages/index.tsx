@@ -11,9 +11,10 @@ import Contact from '../Components/Contact';
 import Footer from '../Components/Footer';
 import React, { useEffect, useState } from 'react';
 import { graphql } from "gatsby";
+import useSSR from "use-ssr";
 
 const isMobileWidth = () => {
-  if (window.innerWidth <= 1000) {
+  if (useSSR().isBrowser && window.innerWidth <= 1000) {
       return true;
   }
   return false;
