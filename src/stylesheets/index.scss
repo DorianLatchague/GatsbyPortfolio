@@ -127,10 +127,6 @@ a {
         color: $regex-keyword;
     }
 }
-section {
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
 p {
     font-size: 14px;
     line-height: 18px;
@@ -155,7 +151,7 @@ span {
 }
 @media (max-width: 575px) {
     h2 {
-        font-size: 1.9em;
+        font-size: 1.85em;
     }
     h3 {
         font-size: 1.75em;
@@ -210,9 +206,6 @@ span {
     }
 }
 section.portfolio-section {
-    min-height: calc(100vh - 60px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding-top: 4em;
+    padding-bottom: 4em;
 }

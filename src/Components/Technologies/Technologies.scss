@@ -1,9 +1,9 @@
 @import '../../scss-exports/colors';
 
 /* Change this to change the appearance of the hexagons */
-$mobile-hex-height: 50px; 
-$mobile-hex-width: calc(50px / 1.73 );
-$mobile-margins: 1px 8px;
+$mobile-hex-height: 52px; 
+$mobile-hex-width: calc(52px / 1.73 );
+$mobile-margins: 1px 9px;
 $tablet-hex-width: calc(80px / 1.73 );
 $tablet-hex-height: 80px; 
 $tablet-margins: 2px 14px;
@@ -22,7 +22,7 @@ $desktop-breakpoint: 1200px;
 $color-hex-primary: #d78521;
 $color-hex-secondary: $foreground;
 
-@media only screen and (min-width: 340px) and (max-width: 390px) {
+@media only screen and (min-width: 340px) and (max-width: 429px) {
 	#technologies {
 		max-width: 320px;
 	}
@@ -34,7 +34,7 @@ $color-hex-secondary: $foreground;
 }
 @media only screen and (min-width: 520px) and (max-width: 570px) {
 	#technologies {
-		max-width: 490px;
+		max-width: 460px;
 	}
 }
 @media only screen and (min-width: 610px) and (max-width: 767px) {
@@ -44,7 +44,6 @@ $color-hex-secondary: $foreground;
 }
 
 #technologies {
-    min-height: 100vh;
     .honeycomb {
         margin: 0 auto;
         text-align: center;
