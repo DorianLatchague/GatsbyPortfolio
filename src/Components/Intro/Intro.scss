@@ -1,43 +1,96 @@
 @import '../../scss-exports/dimensions';
 @import '../../scss-exports/colors';
 
+#intro-element {
+    background: linear-gradient(0deg, $background, #000000)
+}
 #intro {
-    padding-top: 15px + $header-height;
-    padding-bottom: 40px;
-    background-image: url('../../images/clef-heart.png');
-    background-position-x: 100%;
-    background-position-y: 50%;
-    background-repeat: no-repeat;
-    background-size: auto;
-    > h1 {
-        line-height: 30px;
-        font-size: 16px;
-        &.name {
-            margin-top: 60px;
-            margin-bottom: 60px;    
+    > .Typist {
+        padding-top: 15px + $header-height;
+        padding-bottom: 40px;
+        background-image: url('../../images/clef-heart.png');
+        background-position-x: 100%;
+        background-position-y: 50%;
+        background-repeat: no-repeat;
+        background-size: auto;
+        min-height: 100vh;
+        &::after {
+            content: "";
+            position: absolute;
+            opacity: 0.3;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(#000000, 1),
+                rgba(#000000, 1) 2px,
+                transparent,
+                transparent 4px
+            );
+            pointer-events: none;
         }
-        display: flex;
-        > .rotating-pannel {
-            > text {
-                fill: $variable;
+        > *:last-child::after {
+            color: $foreground;
+            content: "▮";
+            opacity: 1;
+            animation: blink 1s steps(1) infinite;
+            font-size: 20px;
+            line-height: 18px;
+        }
+        > p {
+            animation: text-blink 0.01s steps(2) infinite;
+            color: $foreground;
+            text-shadow: 0 0 5px #5f5566;
+            @media only screen and (max-width: 600px) {
+                line-height: 14px;
+                font-size: 10px;
+            }
+            &.crunched {
+                line-height: 12px;
+                font-size: 12px;
+                @media only screen and (max-width: 1000px) {
+                    line-height: 10px;
+                    font-size: 10px;
+                }
+                @media only screen and (max-width: 992px) {
+                    line-height: 6px;
+                    font-size: 6px;
+                }
+                @media only screen and (max-width: 768px) {
+                    line-height: 6px;
+                    font-size: 6px;
+                }
+            }
+            > a {
+                color: $regex-keyword;
+                cursor: pointer;
+                font-size: inherit;
+                line-height: inherit;
+                &:hover, &:active {
+                    color: $regex;
+                }
             }
         }
     }
-    > h2 {  
-        line-height: 30px;
-        margin-bottom: 25px;
-        margin-top: 25px;
-        font-size: 16px;
-        text-align: left;
-        display: flex;
-    }
-    .rotating-pannel {
-        flex: 1 1 0px;
-        background-color: black;
-        border: 1px solid $foreground;
-        > text {
-            fill: $foreground;
-            font-family: 'Monaco';
-        }
-    }
+}
+@keyframes text-blink {
+	from,
+	to {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.85;
+	}
+}
+
+@keyframes blink {
+	from,
+	to {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
 }

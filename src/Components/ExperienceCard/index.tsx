@@ -7,26 +7,52 @@ export default class ExperienceCard extends Component <{
     startTime: Date,
     endTime: Date
 }, {
-    hovered: boolean
+    translated: boolean
 }> {
+    interval: any = null;
+    timeout: any = null;
     state = {
-        hovered: false
+        translated: false
     }
-    formatHoveredDate = (date: Date) => {
+    componentDidMount() {
+        this.interval = setInterval(() => {
+            this.setState({translated: false});
+            this.timeout = setTimeout(() => {
+                this.setState({translated: true});
+                this.timeout = setTimeout(() => {
+                    this.setState({translated: false});
+                    this.timeout = setTimeout(() => {
+                        this.setState({translated: true});
+                        this.timeout = setTimeout(() => {
+                            this.setState({translated: false});
+                            this.timeout = setTimeout(() => {
+                                this.setState({translated: true});
+                            }, 1000)
+                        }, 100)
+                    }, 100)
+                }, 100)
+            }, 1000)
+        }, 10000);
+    }
+    componentWillUnmount() {
+        clearInterval(this.interval);
+        clearTimeout(this.timeout);
+    }
+    formatTranslatedDate = (date: Date) => {
         const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         return `${months[date.getMonth()]} ${date.getFullYear()}`;
     }
     formatDisplayedTimeline = () => {
         return <>
             "<span className="text-const">$&#123;</span>
-            <span className={this.state.hovered ? '': 'text-number'}>{this.state.hovered ? `"${this.formatHoveredDate(this.props.startTime)}"`: this.props.startTime.getTime()}</span>
+            <span className={this.state.translated ? '': 'text-number'}>{this.state.translated ? `"${this.formatTranslatedDate(this.props.startTime)}"`: this.props.startTime.getTime()}</span>
             <span className="text-const">&#125;</span> to <span className="text-const">$&#123;</span>
-            <span className={this.state.hovered ? '': 'text-number'}>{this.state.hovered ? `"${this.formatHoveredDate(this.props.endTime)}"`: this.props.endTime.getTime()}</span>
+            <span className={this.state.translated ? '': 'text-number'}>{this.state.translated ? `"${this.formatTranslatedDate(this.props.endTime)}"`: this.props.endTime.getTime()}</span>
             <span className="text-const">&#125;</span>"
         </>
     }
-    onMouseEnterEvent = () => this.setState({hovered: true});
-    onMouseLeaveEvent = () => this.setState({hovered: false});
+    onMouseEnterEvent = () => this.setState({translated: true});
+    onMouseLeaveEvent = () => this.setState({translated: false});
     render() {
         const { organization, title, description } = this.props;
         return <div className="experience">

@@ -60,6 +60,9 @@ html {
 .text-const {
     color: $const !important;
 }
+.text-grey {
+    color: $grey !important;
+}
 .text-classes {
     color: $classes !important;
 }
@@ -68,6 +71,9 @@ html {
 }
 .text-white {
     color: $foreground !important;
+}
+.text-regex {
+    color: $regex !important;
 }
 .text-grey {
     color: #666 !important;

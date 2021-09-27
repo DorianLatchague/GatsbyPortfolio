@@ -11,14 +11,8 @@ import Contact from '../Components/Contact';
 import Footer from '../Components/Footer';
 import React, { useEffect, useState } from 'react';
 import { graphql } from "gatsby";
+import { isMobileWidth, IsMobileContext } from '../Components/Contexts/isMobile';
 import useSSR from "use-ssr";
-
-const isMobileWidth = () => {
-  if (useSSR().isBrowser && window.innerWidth <= 1000) {
-      return true;
-  }
-  return false;
-};
 
 function App({
   data: {
@@ -50,11 +44,12 @@ function App({
       setIsMobile(isMobileWidth());
   }
   return <ErrorBoundary>
+    <IsMobileContext.Provider value={isMobile}>
       <Helmet>
         <title>Dorian Latchague</title>
         <meta name="description" content="I am a web developer with a background in digital marketing, full-stack instruction and music performance. I presently work as a developer enhancing customer experiences while solving real-life marketing challenges." />
       </Helmet>
-      <Header isMobile={isMobile} navToggled={navToggled} setNavToggled={setNavToggled} isIndex={__filename === '/index.js'} />
+      <Header navToggled={navToggled} setNavToggled={setNavToggled} />
       <main className={navToggled ? 'nav-toggled': ''}>
         <Intro />
         <AboutMe />
@@ -62,8 +57,9 @@ function App({
         <Technologies technologies={technologies} />
         <Projects />  
         <Contact />
-        <Footer isMobile={isMobile} isIndex={__filename === 'index.tsx'} />
+        <Footer />
       </main>
+      </IsMobileContext.Provider>
     </ErrorBoundary>;
 }
 
