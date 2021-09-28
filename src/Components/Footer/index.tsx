@@ -13,7 +13,7 @@ export default class Footer extends Component {
                     <Link navigateTo="/#experience" scrollTo="experience"><li className="footer-nav-item">Experience</li></Link>
                     <Link navigateTo="/#technologies" scrollTo="technologies"><li className="footer-nav-item">Technologies</li></Link>
                     <Link navigateTo="/#projects" scrollTo="projects"><li className="footer-nav-item">Projects</li></Link>
-                    <Link navigateTo="/#contact" scrollTo="contact"><li className="footer-nav-item">Experience</li></Link>
+                    <Link navigateTo="/#contact" scrollTo="contact"><li className="footer-nav-item">Contact</li></Link>
                 </ul>
                 <p className="text-center">Property of Dorian Latchague | Privacy Policy | © 2021 All Rights Reserved</p>
             </div>

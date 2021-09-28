@@ -38,7 +38,7 @@ export default class Header extends Component<{
                                 <Link onClick={this.toggleNav} className="scroll-link" navigateTo="/#experience" scrollTo="experience"><li className="nav-item">Experience</li></Link>
                                 <Link onClick={this.toggleNav} className="scroll-link" navigateTo="/#technologies" scrollTo="technologies"><li className="nav-item">Technologies</li></Link>
                                 <Link onClick={this.toggleNav} className="scroll-link" navigateTo="/#projects" scrollTo="projects"><li className="nav-item">Projects</li></Link>
-                                <Link onClick={this.toggleNav} className="scroll-link" navigateTo="/#contact" scrollTo="contact"><li className="nav-item">Experience</li></Link>
+                                <Link onClick={this.toggleNav} className="scroll-link" navigateTo="/#contact" scrollTo="contact"><li className="nav-item">Contact</li></Link>
                             </> 
                     </ul>
                 </div>
