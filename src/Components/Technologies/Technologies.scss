@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import '../../scss-exports/colors';
 
 /* Change this to change the appearance of the hexagons */
@@ -17,6 +18,8 @@ $mobile-breakpoint: 767px;
 $tablet-breakpoint: 768px;
 $tablet-max-breakpoint: 1199px;
 $desktop-breakpoint: 1200px;
+$circle-width: 0.08em;
+$circle-width-hover: 0.04em;
 
 /* Colors */
 $color-hex-primary: #d78521;
@@ -177,6 +180,7 @@ $color-hex-secondary: $foreground;
             &.enter-done {
                 width: $modal-width;
                 height: $modal-height;
+                cursor: default;
                 
                 > .modal-content {
                     display: flex;
@@ -208,6 +212,152 @@ $color-hex-secondary: $foreground;
                 position: absolute;
                 left: 0;
                 transform: rotate(-60deg);
+            }
+            #experience-label {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .percentage {
+                float: none;
+                margin: 0 auto;
+                position: relative;
+                font-size: 120px;
+                width: 1em;
+                height: 1em; 
+                background-color: #cccccc;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                border-radius: 50%;
+                > span {
+                    position: absolute;
+                    width: 100%;
+                    z-index: 1;
+                    left: 0;
+                    top: 0;
+                    width: 5em;
+                    line-height: 5em;
+                    font-size: 0.2em;
+                    display: block;
+                    text-align: center;
+                    white-space: nowrap;
+                    -webkit-transition-property: all;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    transition-property: all;
+                    -webkit-transition-duration: 0.2s;
+                    -moz-transition-duration: 0.2s;
+                    -o-transition-duration: 0.2s;
+                    transition-duration: 0.2s;
+                    -webkit-transition-timing-function: ease-out;
+                    -moz-transition-timing-function: ease-out;
+                    -o-transition-timing-function: ease-out;
+                    transition-timing-function: ease-out;
+                }
+                &:after {
+                    position: absolute;
+                    top: $circle-width;
+                    left: $circle-width;
+                    display: block;
+                    content: " ";
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                    border-radius: 50%;
+                    background-color: $foreground;
+                    width: 1 - (2 * $circle-width);
+                    height: 1 - (2 * $circle-width);
+                    -webkit-transition-property: all;
+                    -moz-transition-property: all;
+                    -o-transition-property: all;
+                    transition-property: all;
+                    -webkit-transition-duration: 0.2s;
+                    -moz-transition-duration: 0.2s;
+                    -o-transition-duration: 0.2s;
+                    transition-duration: 0.2s;
+                    -webkit-transition-timing-function: ease-in;
+                    -moz-transition-timing-function: ease-in;
+                    -o-transition-timing-function: ease-in;
+                    transition-timing-function: ease-in;
+                }
+                &:hover {
+                    > span {
+                        width: 3.33em;
+                        line-height: 3.33em;
+                        font-size: 0.3em;
+                    }
+                    &:after {
+                        top: $circle-width-hover;
+                        left: $circle-width-hover;
+                        width: 1 - (2 * $circle-width-hover);
+                        height: 1 - (2 * $circle-width-hover);
+                    }
+                }
+                * {
+                    -webkit-box-sizing: content-box;
+                    -moz-box-sizing: content-box;
+                    box-sizing: content-box;
+                }
+                .slice {
+                    position: absolute;
+                    width: 1em;
+                    height: 1em;
+                    clip: rect(0em, 1em, 1em, 0.5em);
+                    .bar {
+                        position: absolute;
+                        border: $circle-width solid $foreground;
+                        width: 1 - (2 * $circle-width);
+                        height: 1 - (2 * $circle-width);
+                        clip: rect(0em, 0.5em, 1em, 0em);
+                        border-radius: 50%;
+                        -webkit-transform: rotate(0);
+                        -moz-transform: rotate(0);
+                        -ms-transform: rotate(0);
+                        -o-transform: rotate(0);
+                        transform: rotate(0);
+                    }
+                }
+                // loop to create all needed elements automatically
+                @for $j from 51 through 100 {
+                    &.p#{$j} {
+                        > .slice {
+                            clip: rect(auto, auto, auto, auto);
+                            > .bar:after {
+                                -webkit-transform: rotate(180deg);
+                                -moz-transform: rotate(180deg);
+                                -ms-transform: rotate(180deg);
+                                -o-transform: rotate(180deg);
+                                transform: rotate(180deg);
+                            }
+                            > .fill {
+                                position: absolute;
+                                border: $circle-width solid $foreground;
+                                width: 1 - (2 * $circle-width);
+                                height: 1 - (2 * $circle-width);
+                                clip: rect(0em, 0.5em, 1em, 0em);
+                                border-radius: 50%;
+                                -webkit-transform: rotate(180deg);
+                                -moz-transform: rotate(180deg);
+                                -ms-transform: rotate(180deg);
+                                -o-transform: rotate(180deg);
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+
+                // loop to rotate all 100 circles
+                @for $j from 1 through 100 {
+                    &.p#{$j} > .slice > .bar {
+                        -webkit-transform: rotate((math.div(360,100)*$j) + deg);
+                        -moz-transform: rotate((math.div(360,100)*$j) + deg);
+                        -ms-transform: rotate((math.div(360,100)*$j) + deg);
+                        -o-transform: rotate((math.div(360,100)*$j) + deg);
+                        transform: rotate((math.div(360,100)*$j) + deg);
+                    }
+                }
             }
 
             > .modal-content {

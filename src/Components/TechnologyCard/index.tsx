@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 export default class TechnologyCard extends Component <{
     tech: string;
     description: string;
-    experience: string;
+    experience: number;
     Icon: IconType;
     color?: string;
 }, {
@@ -23,7 +23,7 @@ export default class TechnologyCard extends Component <{
     constructor(props: {
         tech: string;
         description: string;
-        experience: string;
+        experience: number;
         Icon: IconType;
         color?: string;
     }) {
@@ -72,7 +72,14 @@ export default class TechnologyCard extends Component <{
                         <div className="modal-content">
                             <h3 style={{color}}><Icon /> {tech}</h3>
                             <p>{description}</p>
-                            <p>{experience}</p> 
+                            <p style={{color}} id="experience-label">Experience:</p>
+                            <div className={`percentage p${experience} center`}>
+                                <span style={{color}}>{experience}%</span>
+                                <div className="slice">
+                                    <div className="bar" style={{borderColor: `${color}`}}></div>
+                                    <div className="fill" style={{borderColor: `${color}`}}></div>
+                            </div>
+                        </div>
                             { this.state.closeHovered ?
                             <button style={{backgroundColor: color}} className="close-btn" onClick={this.toggleModal} onMouseLeave={this.hoverCloseLeave} >&times;</button>
                             : <button style={{color}} className="close-btn" onClick={this.toggleModal} onMouseEnter={this.hoverCloseEnter} >&times;</button>}

@@ -26,7 +26,7 @@ function App({
       name: string,
       icon: string,
       description: string,
-      experience: string,
+      experience: number,
       color: string
     }[]
   }

@@ -60,6 +60,7 @@ const Intro = () => {
                 <br />
                 <p>Welcome To My Portfolio! (v{packageInfo.version})</p>
                 <p>{formatTranslatedDate(new Date())}</p>
+                <p>Scroll Down...</p>
             </Typist>
         </section>
     </Element>

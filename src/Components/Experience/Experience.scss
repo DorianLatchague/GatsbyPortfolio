@@ -2,38 +2,44 @@
 
 #experience {
     align-items: unset;
-    .chrono-flex {
-        display: flex;
+    .chrono-reflection {
+        height: 700px;
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -2;
+            width: 1px;
+            height: 700px;
+            opacity: .3;
+            background: $new linear-gradient(180deg,$new,rgba($new,0) 20vh);
+        }
+        .chrono-circle {
+            position: absolute;
+            margin-left: -4.5px;
+            transform-origin: center;
+            width: 9px;
+            height: 9px;
+            border: 1px solid $new;
+            background: #a16f9f;
+            border-radius: 50%;
+        }
         .chrono-line {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 6px;
-            background-color: $foreground;
-            &::before {
-                content: '';
-                display: block;
-                height: 10px;
-                width: 10px;
-                border: 6px solid $foreground;
-                margin-left: -8px;
-                margin-top: -16px;
-                border-radius: 50%;
-            }
-            &::after {
-                content: 'V';
-                display: block;
-                font-size: 40px;
-                color: $foreground;
-                margin-left: -9px;
-                margin-bottom: -25px;
-            }
+            z-index: -1;
+            height: 50vh;
+            position: absolute;
+            width: 1px !important;
+            background: $new linear-gradient(0deg,$background 1rem,rgba(14,18,18,0) 20vh);
         }
         .content {
+            height: 700px;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
             .experience {
                 display: flex;
                 align-items: center;
+                justify-content: center;
                 .connector {
                     color: $foreground;
                     flex-grow: 1;
@@ -69,52 +75,6 @@
                         display: block;
                         color: $foreground;
                     }
-                }
-            }
-        }
-    }
-}
-
-@media only screen and (min-width: 1001px) {
-    #experience {
-        .chrono-flex {
-            .chrono-line {
-                display: flex;
-            }
-            .content {
-                .experience {
-                    .experience-card {
-                        margin-top: -11.5px;
-                    }
-                    .connector {
-                        .timeline {
-                            margin-top: -10px;
-                            margin-left: 10px;
-                            position: absolute;
-                        }
-                        hr {
-                            margin-top: 15px;
-                            margin-bottom: 15px;
-                            height: 7px;
-                            background-color: $foreground;
-                            border: 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-@media only screen and (max-width: 1000px) {
-    .chrono-flex {
-        .content {
-            .experience {
-                text-align: center;
-                flex-direction: column;
-            }
-            .connector {
-                hr {
-                    display: none;
                 }
             }
         }
