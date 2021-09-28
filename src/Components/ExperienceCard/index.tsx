@@ -21,7 +21,7 @@ export default class ExperienceCard extends Component <{
     onMouseLeaveEvent = () => this.setState({translated: false});
     render() {
         const { organization, title, description } = this.props;
-        return <ScrollTrigger start="top 75%" end="bottom 75%" scrub={true} toggleActions={"play complete reverse complete"}>
+        return <ScrollTrigger start="top 75%" end="bottom 75%">
             <Tween from={{x: "20%", opacity: 0}}>
                 <div className="experience">
                     <article className="experience-card">
