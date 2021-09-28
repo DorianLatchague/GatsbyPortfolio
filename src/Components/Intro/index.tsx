@@ -12,7 +12,7 @@ const Intro = () => {
         if (lineIdx >= 15&& lineIdx <= 24) {
             return 1;
         }
-        return 30;
+        return 15;
     }
     const formatTranslatedDate = (date: Date) => {
         const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -24,7 +24,7 @@ const Intro = () => {
     const isMobile = useContext(IsMobileContext);
     return <Element name="intro" id="intro-element">
         <section id="intro" className="container">
-            <Typist delayGenerator={delayGeneratorFunction} cursor={{show: false}}>
+            <Typist delayGenerator={delayGeneratorFunction} stdTypingDelay={10} cursor={{show: false}}>
                 <p>script: Compiling.<Typist.Delay ms={500} />.<Typist.Delay ms={500} />.<Typist.Backspace count={6} delay={500} />ed successfully.</p>
                 <p>hash: {Math.floor(Math.random() * (2**32)).toString()}</p>
                 <p>package: <span className="text-regex">portfolio</span></p>

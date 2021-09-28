@@ -4,21 +4,24 @@ import { Element } from 'react-scroll';
 import ExperienceCard from "../ExperienceCard";
 import { Tween, ScrollTrigger } from "react-gsap";
 
-const background = "#151618";
-
 export default class Experience extends Component {
     render() {
         return <Element name="experience">
             <section id="experience" className="container portfolio-section">
                 <h2>&lt;Experience /&gt;</h2>
-                <div className="chrono-reflection">
+                <div className="chrono-container">
+                    <div className="chrono-reflection" />
+                    <ScrollTrigger srub={true} pin={true} start="top center" end="+=700 center" toggleActions={"play reset play reset"}>
+                        <Tween to={{scale: 5, opacity: 0, duration: 2, repeat: -1, repeatDelay: 1.5}}>
+                            <div className="chrono-pulse" />
+                        </Tween>
+                    </ScrollTrigger>
                     <ScrollTrigger start="top center" end="+=700 center" scrub={true} pin={true} toggleActions={"play pause reverse pause"}>
                         <Tween to={{opacity: 0}} ease="power4.easeIn">
-                            <div className="chrono-line">
-                            </div>
+                            <div className="chrono-line" />
                         </Tween>
                         <Tween>
-                                <div className="chrono-circle"></div>
+                            <div className="chrono-circle" />
                         </Tween>
                     </ScrollTrigger>
                     <div className="content">

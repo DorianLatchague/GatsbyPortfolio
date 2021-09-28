@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import './AboutMe.scss';
 import { Element } from 'react-scroll';
-import { GatsbyImage, getImage, IGatsbyImageData, ImageDataLike } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, ImageDataLike } from 'gatsby-plugin-image';
 import { graphql, StaticQuery } from "gatsby";
 
 export default class AboutMe extends Component {
     getGatbsyImage = (imageData: ImageDataLike) => {
         const image = getImage(imageData);
         if (image) {
-            return <GatsbyImage image={image} alt="Dorian playing the cello" />
+            return <GatsbyImage loading="lazy" image={image} alt="Dorian playing the cello" />
         }
         return null;
     }

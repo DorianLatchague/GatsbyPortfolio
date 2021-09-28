@@ -2,16 +2,13 @@
 
 #experience {
     align-items: unset;
-    .chrono-reflection {
-        height: 700px;
-        &::before {
-            content: "";
+    .chrono-container {
+        .chrono-reflection {
             position: absolute;
-            z-index: -2;
             width: 1px;
             height: 700px;
             opacity: .3;
-            background: $new linear-gradient(180deg,$new,rgba($new,0) 20vh);
+            background: linear-gradient(0deg,$new,rgba($background,1));
         }
         .chrono-circle {
             position: absolute;
@@ -23,12 +20,22 @@
             background: #a16f9f;
             border-radius: 50%;
         }
+        .chrono-pulse {
+            margin-left: -4.5px;
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            transform-origin: center;
+            border-radius: 3rem;
+            background: transparent;
+            border: 1px solid $new;
+            border-radius: 50%;
+        }
         .chrono-line {
-            z-index: -1;
             height: 50vh;
             position: absolute;
             width: 1px !important;
-            background: $new linear-gradient(0deg,$background 1rem,rgba(14,18,18,0) 20vh);
+            background: linear-gradient(180deg,$new,rgba($background,0));
         }
         .content {
             height: 700px;
