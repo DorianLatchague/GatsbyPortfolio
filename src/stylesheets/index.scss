@@ -32,6 +32,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    overflow-x: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -143,6 +144,10 @@ span {
 	margin-left: auto;
 	min-width: 320px;
 }
+section.portfolio-section {
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
 @media (max-width: 330px) {
     .container {
         padding-left: 10px;
@@ -170,6 +175,11 @@ span {
     }
     p, a {
         font-size: 12px;
+    }
+    section.portfolio-section {
+        padding-top: 2em;
+        padding-bottom: 2em;
+        overflow-x: hidden;
     }
 }
 @media only screen and (min-width: 768px) {
@@ -204,8 +214,4 @@ span {
         -o-transition: all 0.5s ease;
         transition: all 0.5s ease;
     }
-}
-section.portfolio-section {
-    padding-top: 4em;
-    padding-bottom: 4em;
 }
