@@ -9,10 +9,10 @@ import { IsMobileContext } from "../Contexts/isMobile";
 
 const Intro = () => {
     const delayGeneratorFunction = (mean: number, std: number, {lineIdx} : Typist.CurrentTextProps) => {
-        if (lineIdx >= 15&& lineIdx <= 24) {
+        if (lineIdx >= 15&& lineIdx <= 70) {
             return 1;
         }
-        return 15;
+        return 20;
     }
     const formatTranslatedDate = (date: Date) => {
         const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -22,9 +22,11 @@ const Intro = () => {
         return `${days[date.getDay()]}, ${day}${day_suffixes[(day % 10)] || "th"} ${months[date.getMonth()]}, ${date.getFullYear()}`;
     }
     const isMobile = useContext(IsMobileContext);
-    return <Element name="intro" id="intro-element">
+    return <Element name="intro">
         <section id="intro" className="container">
-            <Typist delayGenerator={delayGeneratorFunction} stdTypingDelay={10} cursor={{show: false}}>
+            <h1 className="sr-only">Dorian Latchague</h1>
+            <h2 className="sr-only">Software Engineer</h2>
+            <Typist delayGenerator={delayGeneratorFunction} stdTypingDelay={0} cursor={{show: false}}>
                 <p>script: Compiling.<Typist.Delay ms={500} />.<Typist.Delay ms={500} />.<Typist.Backspace count={6} delay={500} />ed successfully.</p>
                 <p>hash: {Math.floor(Math.random() * (2**32)).toString()}</p>
                 <p>package: <span className="text-regex">portfolio</span></p>
@@ -33,15 +35,19 @@ const Intro = () => {
                 <br />
                 <br />
                 <br />
+                <p aria-hidden className="name-crunched">██████   █████  ██████  ██  █████  ███   ██     ██       █████  ████████  █████  ██   ██  █████   ██████  ██    ██ ███████</p>
+                <p aria-hidden className="name-crunched">██   ██ ██   ██ ██   ██ ██ ██   ██ ████  ██     ██      ██   ██    ██    ██   ██ ██   ██ ██   ██ ██       ██    ██ ██     </p>
+                <p aria-hidden className="name-crunched">██   ██ ██   ██ ██████  ██ ███████ ██ ██ ██     ██      ███████    ██    ██      ███████ ███████ ██   ██  ██    ██ █████  </p>
+                <p aria-hidden className="name-crunched">██   ██ ██   ██ ██   ██ ██ ██   ██ ██  ████     ██      ██   ██    ██    ██   ██ ██   ██ ██   ██ ██    ██ ██    ██ ██     </p>
+                <p aria-hidden className="name-crunched">██████   █████  ██   ██ ██ ██   ██ ██   ███     ███████ ██   ██    ██     █████  ██   ██ ██   ██  ██████   ██████  ███████</p> 
                 <br />
                 <br />
-                <p className="crunched">██████   █████  ██████  ██  █████  ███   ██     ██       █████  ████████  █████  ██   ██  █████   ██████  ██    ██ ███████ </p>
-                <p className="crunched">██   ██ ██   ██ ██   ██ ██ ██   ██ ████  ██     ██      ██   ██    ██    ██   ██ ██   ██ ██   ██ ██       ██    ██ ██      </p>
-                <p className="crunched">██   ██ ██   ██ ██████  ██ ███████ ██ ██ ██     ██      ███████    ██    ██      ███████ ███████ ██   ██  ██    ██ █████   </p>
-                <p className="crunched">██   ██ ██   ██ ██   ██ ██ ██   ██ ██  ████     ██      ██   ██    ██    ██   ██ ██   ██ ██   ██ ██    ██ ██    ██ ██      </p>
-                <p className="crunched">██████   █████  ██   ██ ██ ██   ██ ██   ███     ███████ ██   ██    ██     █████  ██   ██ ██   ██  ██████   ██████  ███████ </p> 
                 <br />
-                <br />
+                <p aria-hidden className="title-crunched"> ██████  █████  ███████ ████████  ██        ██  █████  ██████  ███████     ███████ ███   ██  ██████  ██ ███   ██ ███████ ███████ ██████</p>
+                <p aria-hidden className="title-crunched">██      ██   ██ ██         ██     ██   ██   ██ ██   ██ ██   ██ ██          ██      ████  ██ ██       ██ ████  ██ ██      ██      ██   ██</p>
+                <p aria-hidden className="title-crunched"> █████  ██   ██ █████      ██      ██ ████ ██  ███████ ██████  █████       █████   ██ ██ ██ ██   ██  ██ ██ ██ ██ █████   █████   ██████</p>
+                <p aria-hidden className="title-crunched">     ██ ██   ██ ██         ██      ████  ████  ██   ██ ██   ██ ██          ██      ██  ████ ██    ██ ██ ██  ████ ██      ██      ██   ██</p>
+                <p aria-hidden className="title-crunched">██████   █████  ██         ██       ██    ██   ██   ██ ██   ██ ███████     ███████ ██   ███  ██████  ██ ██   ███ ███████ ███████ ██   ██</p>                                             
                 <br />
                 <br />
                 <br />
@@ -56,9 +62,7 @@ const Intro = () => {
                 <br />
                 <br />
                 <br />
-                <br />
-                <br />
-                <p>Welcome To My Portfolio! (v{packageInfo.version})</p>
+                <p>Welcome To My Portfolio! v{packageInfo.version}</p>
                 <p>{formatTranslatedDate(new Date())}</p>
                 <p>Scroll Down...</p>
             </Typist>

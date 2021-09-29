@@ -26,7 +26,7 @@ export default class Experience extends Component {
                     </ScrollTrigger>
                     <div className="content">
                         <ExperienceCard organization="Harvard Extension School" startTime={new Date('2019-05-02')} endTime={new Date('2019-12-02')} title="Teaching Assistant" description="Test description..." />
-                        <ExperienceCard organization="Rize" startTime={new Date('2019-05-24')} endTime={new Date('2021-07-31')} title="Digital Marketing Coordinator" description="Test description..." />
+                        <ExperienceCard organization="Rize" startTime={new Date('2019-05-24')} endTime={new Date('2021-07-31')} title="Web Developer" description="Test description..." />
                         <ExperienceCard organization="Microsoft - Azure Sentinel" startTime={new Date('2021-10-04')} endTime={new Date()} title="Software Engineer" description="Test description..." />
                     </div>
                 </div>

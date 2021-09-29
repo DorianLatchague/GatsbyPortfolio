@@ -1,10 +1,14 @@
+@use 'sass:math';
 @import '../../scss-exports/colors';
+
+$card-height: 160px;
 
 #experience {
     align-items: unset;
     .chrono-container {
         .chrono-reflection {
             position: absolute;
+            z-index: 1;
             width: 1px;
             height: 700px;
             opacity: .3;
@@ -12,6 +16,7 @@
         }
         .chrono-circle {
             position: absolute;
+            z-index: 1;
             margin-left: -4.5px;
             transform-origin: center;
             width: 9px;
@@ -23,6 +28,7 @@
         .chrono-pulse {
             margin-left: -4.5px;
             position: absolute;
+            z-index: 1;
             width: 9px;
             height: 9px;
             transform-origin: center;
@@ -34,6 +40,7 @@
         .chrono-line {
             height: 50vh;
             position: absolute;
+            z-index: 1;
             width: 1px !important;
             background: linear-gradient(180deg,$new,rgba($background,0));
         }
@@ -47,16 +54,31 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                .connector {
-                    color: $foreground;
-                    flex-grow: 1;
-                    color: $string;
-                    display: block;
-                }
                 .experience-card {
-                    height: 160px;
+                    height: $card-height;
                     display: flex;
                     align-items: center;
+                    .card-content {
+                        position: relative;
+                        .duplicate {
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            margin-left: auto;
+                            margin-right: auto;
+                            &.bottom {
+                               -webkit-clip-path: inset(58% 0 0 0);
+                               clip-path: inset(58% 0 0 0);
+                            }
+                            &.top {
+                                -webkit-clip-path: inset(0 0 41% 0);
+                               clip-path: inset(0 0 41%);
+                            }
+                        }
+                        .hidden-time {
+                            visibility: hidden;
+                        }
+                    }
                     &::before {
                         display: block;
                         content: "{";
@@ -86,4 +108,51 @@
             }
         }
     }
+}
+
+@keyframes glitch-anim-1-horizontal {
+	0% { 
+		-webkit-clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+		clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+	}
+	10% {
+		-webkit-clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+		clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+	}
+	20% {
+		-webkit-clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+		clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+	}
+	30% {
+		-webkit-clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+		clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+	}
+	40% {
+		-webkit-clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+		clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+	}
+	50% {
+		-webkit-clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+		clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+	}
+	60% {
+		-webkit-clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+		clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+	}
+	70% {
+		-webkit-clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+		clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+	}
+	80% {
+		-webkit-clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+		clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+	}
+	90% {
+		-webkit-clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+		clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+	}
+	100% {
+		-webkit-clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+		clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+	}
 }

@@ -17,14 +17,6 @@ header {
     .header-container {
         display: flex;
         justify-content: space-between;
-        .title-link.active h6 {
-            &::before {
-            content: "<"
-            }
-            &::after {
-                content: "/>"
-            }
-        }
     }
     .nav {
         .scroll-link.active .nav-item {

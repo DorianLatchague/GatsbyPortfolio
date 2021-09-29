@@ -53,7 +53,25 @@ table {
     box-sizing: border-box;
 }
 html {
-    background-color: $background;
+    background: #000000;
+    background: linear-gradient(0deg, #000000, $background, #000000);
+    &::after {
+        content: "";
+        position: fixed;
+        opacity: 0.3;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(#000000, 1),
+            rgba(#000000, 1) 2px,
+            transparent,
+            transparent 4px
+        );
+        pointer-events: none;
+    }
 }
 .text-variable {
     color: $variable !important;
@@ -91,11 +109,13 @@ html {
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     color: $classes;
+    z-index: 1;
 }
 h1 {
     font-size: 2em;
 }
 h2 {
+    position: relative;
     text-align: center;
     margin-top: .5em;
     font-size: 2.5em;
@@ -145,8 +165,8 @@ span {
 	min-width: 320px;
 }
 section.portfolio-section {
-    padding-top: 4em;
     padding-bottom: 4em;
+    overflow-x: hidden;
 }
 @media (max-width: 330px) {
     .container {
@@ -177,10 +197,19 @@ section.portfolio-section {
         font-size: 12px;
     }
     section.portfolio-section {
-        padding-top: 2em;
         padding-bottom: 2em;
-        overflow-x: hidden;
     }
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* added line */
+    border: 0;
 }
 @media only screen and (min-width: 768px) {
 	.container {
