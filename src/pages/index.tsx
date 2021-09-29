@@ -12,25 +12,36 @@ import Footer from '../Components/Footer';
 import React, { useEffect, useState } from 'react';
 import { graphql } from "gatsby";
 import { isMobileWidth, IsMobileContext } from '../Components/Contexts/isMobile';
-import useSSR from "use-ssr";
 
 function App({
   data: {
     allTechnologiesJson: {
-      nodes: technologies
+      nodes: technologies,
+    },
+    allProjectsJson: {
+      nodes: projects
     }
   }
-}:{data: {
-  allTechnologiesJson: {
-    nodes: {
-      name: string,
-      icon: string,
-      description: string,
-      experience: number,
-      color: string
-    }[]
+} : {
+  data: {
+    allTechnologiesJson: {
+      nodes: {
+        name: string,
+        icon: string,
+        description: string,
+        experience: number,
+        color: string
+      }[]
+    },
+    allProjectsJson: {
+      nodes: {
+        name: string,
+        imgUrl: string,
+        description: string
+      }[]
+    }
   }
-}}) {
+}) {
   const [navToggled, setNavToggled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -55,7 +66,7 @@ function App({
         <AboutMe />
         <Experience />
         <Technologies technologies={technologies} />
-        <Projects />  
+        <Projects projects={projects} />  
         <Contact />
         <Footer />
       </main>
@@ -72,6 +83,13 @@ export const query = graphql`
           description,
           experience,
           color
+      }
+    },
+    allProjectsJson {
+      nodes {
+        name,
+        imgUrl,
+        description
       }
     }
   }

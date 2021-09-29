@@ -19,10 +19,10 @@ export default class GlitchyDate extends Component <{
                 </>}>
                     <Tween target={0} to={{skewX: 0, ease: "Power4.easeInOut", duration: 0.16}} />
                     <Tween target={1} to={{skewX: 0, ease: "Power4.easeInOut", duration: 0.16}} position={"-=0.16"} />
-                    <Tween target={0} to={{opacity: 0, duration: 0.16}} />
-                    <Tween target={1} to={{opacity: 0, duration: 0.16}} position={"-=0.16"} />
-                    <Tween target={0} to={{opacity: 1, duration: 0.16}} />
-                    <Tween target={1} to={{opacity: 1, duration: 0.16}} position={"-=0.16"} />
+                    <Tween target={0} to={{opacity: 0, duration: 0.04}} />
+                    <Tween target={1} to={{opacity: 0, duration: 0.04}} position={"-=0.04"} />
+                    <Tween target={0} to={{opacity: 1, duration: 0.04}} />
+                    <Tween target={1} to={{opacity: 1, duration: 0.04}} position={"-=0.04"} />
                     <Tween target={0} to={{x: -30, duration: .08}} />
                     <Tween target={1} to={{x: -30, duration: .08}} position={"-=.08"} />
                     <Tween target={0} to={{x: 0, duration: 0.04}} />

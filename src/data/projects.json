@@ -1,0 +1,47 @@
+[
+    {
+        "imgUrl":"https://via.placeholder.com/150",
+        "name":"Gray" ,
+        "description":"Test description"
+    },
+    {
+        "imgUrl":"https://via.placeholder.com/150",
+        "name":"MightyVet Website" ,
+        "description":"Test description..."
+    },
+    {
+        "imgUrl":"https://via.placeholder.com/150",
+        "name":"Rize Website V1" ,
+        "description":"Test description..."
+    },
+    {
+        "imgUrl":"https://via.placeholder.com/150" ,
+        "name":"SW xDesign to Rize Slicer Export Tool" ,
+        "description":"Test description..."
+    },
+    {
+        "imgUrl":"https://via.placeholder.com/150" ,
+        "name":"The Village" ,
+        "description":"Test description..."
+    },
+    {
+        "imgUrl":"https://via.placeholder.com/150" ,
+        "name":"Rize Website V2" ,
+        "description":"Test description..."
+    },
+    {
+        "imgUrl":"https://via.placeholder.com/150" ,
+        "name":"Rize Zone" ,
+        "description":"Test description..."
+    },
+    {
+        "imgUrl":"https://via.placeholder.com/150" ,
+        "name":"Various Rize IOT Platforms" ,
+        "description":"Test description..."
+    },
+    {
+        "imgUrl":"https://via.placeholder.com/150" ,
+        "name":"Portfolio" ,
+        "description":"Test description..."
+    }
+]
