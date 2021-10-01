@@ -22,7 +22,7 @@ const Intro = () => {
         return `${days[date.getDay()]}, ${day}${day_suffixes[(day % 10)] || "th"} ${months[date.getMonth()]}, ${date.getFullYear()}`;
     }
     const isMobile = useContext(IsMobileContext);
-    return <Element name="intro">
+    return <Element name="intro" className="screen">
         <section id="intro" className="container">
             <h1 className="sr-only">Dorian Latchague</h1>
             <h2 className="sr-only">Software Engineer</h2>
@@ -67,6 +67,7 @@ const Intro = () => {
                 <p>Scroll Down...</p>
             </Typist>
         </section>
+        <div className="striage" />
     </Element>
 }
 

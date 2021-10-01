@@ -1,12 +1,10 @@
 @import '../../scss-exports/colors';
 
 footer {
-    position: relative;
     background-color: $background;
     padding: 15px 0;
     border-top: 1px solid #373737;
     text-align: center;
-    z-index: 1;
     h6 {
         cursor: pointer;
         color: $variable;

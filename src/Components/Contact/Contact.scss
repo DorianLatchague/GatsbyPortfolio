@@ -23,12 +23,10 @@
             }
         }
         .contact-form {
-            position: relative;
             padding: 20px;
             width: calc(50% - 10px);
-            border-radius: .25em;
+            border-radius: .25rem;
             background: $regex-keyword;
-            z-index: 1;
             .error-text {
                 color: $danger;
                 text-align: center;
@@ -109,7 +107,7 @@
                     justify-content: center;
                     background-color: $regex-keyword;
                     border: 2px solid $regex;
-                    border-radius: .25em;
+                    border-radius: .25rem;
                     color: $regex;
                     transition: all .5s ease-in-out;
                     cursor: pointer;

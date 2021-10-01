@@ -56,8 +56,6 @@ $percentage-wheel: 80px;
         text-align: center;
         font-size: 0;
         padding-bottom: 60px;
-        position: relative;
-        z-index: 1;
     }
     .hexagon-tile {
         position: relative;
@@ -111,7 +109,7 @@ $percentage-wheel: 80px;
         > .tech-modal {
             position: fixed;
             background-color: $color-hex-secondary;
-            z-index: 4;
+            z-index: 3;
             border-radius: 20%/5%;
             transition: all .5s ease;
             left: 0;
@@ -125,7 +123,7 @@ $percentage-wheel: 80px;
                 padding: 0;
                 box-sizing: border-box;
                 border-radius: 20%/5%;
-                z-index: 4;
+                z-index: 3;
                 transition: all .5s ease;
             }
 
@@ -155,7 +153,7 @@ $percentage-wheel: 80px;
                 padding: 0;
                 box-sizing: border-box;
                 border-radius: 20%/5%;
-                z-index: 4;
+                z-index: 3;
                 transition: all .5s ease;
                 width: $modal-width;
                 height: $modal-height;
@@ -199,7 +197,7 @@ $percentage-wheel: 80px;
                 width: $modal-width;
                 height: $modal-height;
                 border-radius: 20%/5%;
-                z-index: 4;
+                z-index: 3;
                 transition: all .5s ease;
             }
 
@@ -238,7 +236,6 @@ $percentage-wheel: 80px;
                 > span {
                     position: absolute;
                     width: 100%;
-                    z-index: 1;
                     left: 0;
                     top: 0;
                     width: 5em;
@@ -315,7 +312,7 @@ $percentage-wheel: 80px;
                         border: $circle-width solid $foreground;
                         width: 1 - (2 * $circle-width);
                         height: 1 - (2 * $circle-width);
-                        clip: rect(0em, 0.5em, 1em, 0em);
+                        clip: rect(0rem, 0.5em, 1em, 0em);
                         border-radius: 50%;
                         -webkit-transform: rotate(0);
                         -moz-transform: rotate(0);
@@ -377,7 +374,7 @@ $percentage-wheel: 80px;
                 margin: auto;
                 color: white;
                 line-height: 1.2;
-                z-index: 5;
+                z-index: 4;
                 display: none;
 
                 > h3 {
@@ -393,7 +390,8 @@ $percentage-wheel: 80px;
                 > .close-btn {
                     border-radius: 50%;
                     position: absolute;
-                    padding: 5px 12px;
+                    height: 35px;
+                    width: 35px;
                     color: $color-hex-secondary;
                     border: 0;
                     font-size: 30px;
@@ -401,7 +399,7 @@ $percentage-wheel: 80px;
                     background-color: $color-hex-secondary;
                     right: 10px;
                     cursor: pointer;
-
+                    transition: all .25s ease-out;
                     &:focus {
                         outline: 0;
                     }
@@ -538,7 +536,7 @@ $percentage-wheel: 80px;
     right: 0;
     bottom: 0;
     top: 0;
-    z-index: 3;
+    z-index: 2;
     transition: all .5s ease;
 }
 .modal-bg.enter-active, .modal-bg.enter-done {

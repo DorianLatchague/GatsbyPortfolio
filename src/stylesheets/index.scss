@@ -53,25 +53,7 @@ table {
     box-sizing: border-box;
 }
 html {
-    background: #000000;
-    background: linear-gradient(0deg, #000000, $background, #000000);
-    &::after {
-        content: "";
-        position: fixed;
-        opacity: 0.3;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        min-height: 100%;
-        background: repeating-linear-gradient(
-            0deg,
-            rgba(#000000, 1),
-            rgba(#000000, 1) 2px,
-            transparent,
-            transparent 4px
-        );
-        pointer-events: none;
-    }
+    background: $background;
 }
 .text-variable {
     color: $variable !important;
@@ -109,34 +91,33 @@ html {
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     color: $classes;
-    z-index: 1;
 }
 h1 {
-    font-size: 2em;
+    font-size: 2rem;
 }
 h2 {
     position: relative;
     text-align: center;
-    margin-top: .5em;
-    font-size: 2.5em;
-    margin-bottom: 1em;
+    margin-top: .5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 h3 {
-    margin-top: .25em;
-    font-size: 2.25em;
-    margin-bottom: .75em;
+    margin-top: .25rem;
+    font-size: 2.25rem;
+    margin-bottom: .75rem;
 }
 h4 {
-    font-size: 2em;
-    margin-bottom: .5em;
+    font-size: 2rem;
+    margin-bottom: .5rem;
 }
 h5 {
-    font-size: 1.75em;
-    margin-bottom: .5em;
+    font-size: 1.75rem;
+    margin-bottom: .5rem;
 }
 h6 {
-    font-size: 1.5em;
-    margin-bottom: .25em;
+    font-size: 1.5rem;
+    margin-bottom: .25rem;
 }
 a {
     color: $const;
@@ -165,7 +146,7 @@ span {
 	min-width: 320px;
 }
 section.portfolio-section {
-    padding-bottom: 4em;
+    padding-bottom: 4rem;
     overflow-x: hidden;
 }
 @media (max-width: 330px) {
@@ -176,28 +157,28 @@ section.portfolio-section {
 }
 @media (max-width: 575px) {
     h2 {
-        font-size: 1.85em;
+        font-size: 1.85rem;
     }
     h3 {
-        font-size: 1.75em;
+        font-size: 1.75rem;
     }
     h4 {
-        font-size: 1.6em;
-        margin-bottom: .5em;
+        font-size: 1.6rem;
+        margin-bottom: .5rem;
     }
     h5 {
-        font-size: 1.5em;
-        margin-bottom: .5em;
+        font-size: 1.5rem;
+        margin-bottom: .5rem;
     }
     h6 {
-        font-size: 1.25em;
-        margin-bottom: .25em;
+        font-size: 1.25rem;
+        margin-bottom: .25rem;
     }
     p, a {
         font-size: 12px;
     }
     section.portfolio-section {
-        padding-bottom: 2em;
+        padding-bottom: 2rem;
     }
 }
 .sr-only {
@@ -210,6 +191,9 @@ section.portfolio-section {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap; /* added line */
     border: 0;
+}
+main > *:last-child {
+    background: linear-gradient(0deg, #000000, $background);
 }
 @media only screen and (min-width: 768px) {
 	.container {

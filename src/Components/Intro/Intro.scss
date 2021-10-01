@@ -1,6 +1,26 @@
 @import '../../scss-exports/dimensions';
 @import '../../scss-exports/colors';
 
+.screen {
+    position: relative;
+    background: linear-gradient(0deg, $background, #000000);
+    .striage {
+        position: absolute;
+        opacity: 0.3;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+            0deg,
+            rgba(#000000, 1),
+            rgba(#000000, 1) 2px,
+            transparent,
+            transparent 4px
+        );
+    }
+}
 #intro {
     > .Typist {
         padding-top: 15px + $header-height;

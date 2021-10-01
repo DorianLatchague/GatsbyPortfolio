@@ -16,6 +16,19 @@ module.exports = {
     },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Dorian Latchague Portfolio`,
+        short_name: `Dorian Latchague`,
+        start_url: `/`,
+        background_color: `#000000`,
+        theme_color: `#e8ebf7`,
+        display: `standalone`,
+        icon: "src/images/portfolio-logo.jpg"
+      }
+    },
+    "gatsby-plugin-offline",
     "gatsby-transformer-remark",
     {
       resolve: `gatsby-plugin-sharp`,

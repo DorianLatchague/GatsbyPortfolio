@@ -36,8 +36,9 @@ function App({
     allProjectsJson: {
       nodes: {
         name: string,
-        imgUrl: string,
-        description: string
+        img_url: string,
+        description: string,
+        img_alt: string
       }[]
     }
   }
@@ -68,8 +69,8 @@ function App({
         <Technologies technologies={technologies} />
         <Projects projects={projects} />  
         <Contact />
-        <Footer />
       </main>
+      <Footer />
       </IsMobileContext.Provider>
     </ErrorBoundary>;
 }
@@ -88,8 +89,9 @@ export const query = graphql`
     allProjectsJson {
       nodes {
         name,
-        imgUrl,
-        description
+        img_url,
+        description,
+        img_alt
       }
     }
   }
