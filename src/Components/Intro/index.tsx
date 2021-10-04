@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Element } from "react-scroll";
 import "./Intro.scss";
 import packageInfo from '../../../package.json'
 import Link from "../Link";
 import Typist from 'react-typist';
-import { IsMobileContext } from "../Contexts/isMobile";
 
 
 const Intro = () => {
@@ -21,7 +20,6 @@ const Intro = () => {
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         return `${days[date.getDay()]}, ${day}${day_suffixes[(day % 10)] || "th"} ${months[date.getMonth()]}, ${date.getFullYear()}`;
     }
-    const isMobile = useContext(IsMobileContext);
     return <Element name="intro" className="screen">
         <section id="intro" className="container">
             <h1 className="sr-only">Dorian Latchague</h1>

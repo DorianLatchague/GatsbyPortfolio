@@ -11,7 +11,7 @@ export default class Experience extends Component {
                 <h2>&lt;Experience /&gt;</h2>
                 <div className="chrono-container">
                     <div className="chrono-reflection" />
-                    <ScrollTrigger srub={true} pin={true} start="top center" end="+=700 center" toggleActions={"play reset play reset"}>
+                    <ScrollTrigger pin={true} start="top center" end="+=700 center" toggleActions={"play reset play reset"}>
                         <Tween to={{scale: 5, opacity: 0, duration: 2, repeat: -1, repeatDelay: 1.5}}>
                             <div className="chrono-pulse" />
                         </Tween>

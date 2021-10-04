@@ -51,7 +51,7 @@ export default class Technologies extends Component<{
                 <h2>&lt;Technologies /&gt;</h2>
                 <div className="honeycomb">
                     {this.props.technologies && this.props.technologies.map ? this.props.technologies.map(({name, icon, description, experience, color}, index) => 
-                            <TechnologyCard key={index} tech={name} Icon={this.fetchIcon(icon)} description={description} experience={experience} color={color} />
+                        <TechnologyCard key={index} tech={name} Icon={this.fetchIcon(icon)} description={description} experience={experience} color={color} />
                     ) : null }
                 </div>
             </section>
